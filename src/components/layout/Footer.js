@@ -5,7 +5,6 @@ import NavbarBrand from 'reactstrap/lib/NavbarBrand'
 import Nav from 'reactstrap/lib/Nav'
 import NavItem from 'reactstrap/lib/NavItem'
 import NavLink from 'reactstrap/lib/NavLink'
-import { deflate } from 'zlib'
 
 const Footer = () => (
     <Navbar color="light" expand="md" className="mt-4">
