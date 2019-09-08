@@ -8,8 +8,8 @@ import NavLink from 'reactstrap/lib/NavLink'
 
 const Header = () => {
     return (
-        <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">{process.env.REACT_APP_PROJECT_NAME}</NavbarBrand>
+        <Navbar color="light"  expand="md" className="mb-3">
+            <NavbarBrand href="/"><kbd>{process.env.REACT_APP_PROJECT_NAME}</kbd></NavbarBrand>
             <Nav className="ml-auto" navbar>
                 <NavItem>
                     <NavLink href="https://github.com/AngelGarcia13/DominicanWhoCodes">About</NavLink>
