@@ -7,12 +7,20 @@ const buildUrl = criteria =>
 const isOk = response =>
     response.ok ?
         response.json() :
-        Promise.reject(response.statusText) 
+        Promise.reject(response.statusText)
 
-const appendRawGitUrl = coder => ({
-    ...coder,
-    image: `${process.env.REACT_APP_ROOT_URL}${coder.image}`
-})
+const appendRawGitUrl = coder => {
+    const imageStatus = checkUrl(coder.image)
+
+    return {
+        ...coder,
+        image: (imageStatus === 1)
+            ? coder.image
+            : (imageStatus === 0)
+                ? `${process.env.REACT_APP_ROOT_URL}${coder.image}`
+                : 'https://picsum.photos/200'
+    }
+}
 
 const updateImageUrl = data => 
     data.map(appendRawGitUrl)
