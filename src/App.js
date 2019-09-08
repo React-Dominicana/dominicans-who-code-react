@@ -9,8 +9,16 @@ const App = memo(() => {
   return (
     <div className="App">
       <Header />
-        <h1>{process.env.REACT_APP_PROJECT_NAME}</h1>
-        <p>Dominican Developers 🇩🇴 who like to code and contribute to Open Source ❤️ </p>
+      <h1>{process.env.REACT_APP_PROJECT_NAME}</h1>
+      <p>Dominican Developers
+        <span role="img" aria-label="">
+          &nbsp;🇩🇴
+        </span>
+        who like to code and contribute to Open Source
+        <span role="img" aria-label="">
+          &nbsp;❤️
+        </span>
+      </p>
       <DominicansWhoCodesList />
       <Footer />
     </div>
