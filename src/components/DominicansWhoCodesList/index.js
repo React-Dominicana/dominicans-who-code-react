@@ -3,10 +3,10 @@ import React from 'react'
 import Row from 'reactstrap/lib/Row'
 import CoderCard from '../CoderCard'
 
-import useFetch from '../../hooks/useFetch'
+import useDominicanCoders from '../../hooks/useDominicanCoders'
 
 const DominicansWhoCodesList = () => {
-    const { data, loading } = useFetch()
+    const { data, loading } = useDominicanCoders()
 
     const renderCodersCards = (coder, index) =>
         <CoderCard  {...coder} key={index} />

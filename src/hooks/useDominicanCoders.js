@@ -16,7 +16,7 @@ const appendRawGitUrl = coder => ({
 const updateImageUrl = data =>
     data.map(appendRawGitUrl)
 
-const useFetch = (criteria = '') => {
+const useDominicanCoders = (criteria = '') => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const setCoders = coders => setData(coders)
@@ -34,4 +34,4 @@ const useFetch = (criteria = '') => {
     return { data, loading }
 }
 
-export default useFetch
+export default useDominicanCoders
