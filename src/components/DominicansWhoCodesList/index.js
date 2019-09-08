@@ -4,6 +4,7 @@ import CoderCard from '../CoderCard'
 
 const DominicansWhoCodesList = () => {
     const { data, loading } = useFetch()
+    
     const renderCodersCards = (coder, index) => 
         <CoderCard  {...coder} key={index} />
         
