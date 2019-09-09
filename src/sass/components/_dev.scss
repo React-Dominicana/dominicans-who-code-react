@@ -1,0 +1,41 @@
+$block: 'dev';
+
+.#{$block} {
+  &-list {
+    @media only screen and (min-width: $sm) and (max-width: 480px) {
+      margin: 0 10px;
+    }
+  
+    @media only screen and (min-width: $md) and (max-width: 1024px) {
+      margin: 0 10px;
+    } 
+  
+    @media only screen and (min-width: $lg) {
+      margin: 0 150px;
+    }
+  
+    .#{$block}-card {
+      .skill-tag {
+        margin: 0 2px;
+      }
+  
+      .image {
+        background-color: $black-odd;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        height: 300px;
+      }
+  
+      .title {
+        font-size: 20px;
+        font-weight: 800;
+      }
+  
+      .description {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}

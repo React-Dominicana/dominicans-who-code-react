@@ -1,7 +1,8 @@
+// Helpers
 import React, {memo} from 'react';
 import DominicansWhoCodesList from './components/DominicansWhoCodesList'
 
-import './App.scss'
+// Layouts
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 
