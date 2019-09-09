@@ -1,10 +1,9 @@
 // Helpers
-import React, {memo} from 'react';
-import DominicansWhoCodesList from './components/DominicansWhoCodesList'
+import React, {memo} from 'react'
+import DominicansWhoCodesList from './containers/DominicansWhoCodesList'
 
 // Layouts
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
+import { Header, Footer } from './components/layout'
 
 const App = memo(() => {
   return (

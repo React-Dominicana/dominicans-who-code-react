@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Row from 'reactstrap/lib/Row'
-import CoderCard from '../CoderCard'
+import CoderCard from '../../components/CoderCard'
 
 import useDominicanCoders from '../../hooks/useDominicanCoders'
 
