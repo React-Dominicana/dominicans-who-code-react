@@ -59,6 +59,24 @@
       font-size: 14px;
       font-weight: 300;
     }
+
+    .icons {
+      display: inline;
+
+      .link {
+        color: #212529;
+        text-decoration: none;
+
+        &:hover {
+          color: #747474;
+        }
+        
+        .icon {
+          font-size: 20px;
+          margin: 0 2px;
+        }
+      }
+    }
   }
 }
 
