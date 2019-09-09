@@ -26,7 +26,7 @@ const DominicansWhoCodesList = () => {
         <CoderCard  {...coder} key={index} />
 
     return loading ? 'Loading'
-        : (<Row>{shuffle(data).map(renderCodersCards)}</Row>)
+        : (<Row className="dev-list">{shuffle(data).map(renderCodersCards)}</Row>)
 }
 
 export default DominicansWhoCodesList

@@ -11,25 +11,19 @@ const CoderCard = memo((props) => {
   const skills = props.skills.split(',')
 
   const renderSkillsTag = (skill, index) =>
-    <Badge color="primary" key={index} style={{ margin: '0 2px' }}>{skill}</Badge>
+    <Badge color="primary" key={index} className="skill-tag">{skill}</Badge>
 
   return (
     <Col xs={12} md={4}>
-      <Card className="m-3">
+      <Card className="dev-card m-3">
         <div
-          style={{
-            backgroundColor: '#212529',
-            backgroundImage: `url(${props.image})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'top',
-            height: '300px'
-          }} />
+          className="image"
+          style={{ backgroundImage: `url(${props.image})` }} />
         <CardBody>
           {skills.map(renderSkillsTag)}
-          <CardTitle style={{ fontSize: '20px', fontWeight: '800' }}>{props.name}</CardTitle>
-          <CardSubtitle>{props.initials}</CardSubtitle>
-          <CardText>{props.summary}</CardText>
+          <CardTitle className="title">{props.name}</CardTitle>
+          <CardSubtitle className="subtitle">{props.initials}</CardSubtitle>
+          <CardText className="description">{props.summary}</CardText>
         </CardBody>
       </Card>
     </Col>
