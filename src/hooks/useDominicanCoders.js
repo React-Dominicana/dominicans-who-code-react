@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { checkUrl } from '../utils'
+import * as helper from '../utils/helper'
 
 const buildUrl = criteria =>
     `${process.env.REACT_APP_API_URL}${criteria ? `/${criteria}` : ''}`
