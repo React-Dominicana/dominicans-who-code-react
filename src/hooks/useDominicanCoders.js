@@ -22,19 +22,20 @@ const appendRawGitUrl = coder => {
     }
 }
 
-const updateImageUrl = data =>
+const updateImageUrl = data => 
     data.map(appendRawGitUrl)
 
 const useDominicanCoders = (criteria = '') => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const setCoders = coders => setData(coders)
-
+    
     useEffect(() => {
         setLoading(true)
         fetch(buildUrl(criteria))
             .then(isOk)
             .then(updateImageUrl)
+            .then(helper.shuffle)
             .then(setCoders)
             .finally(setLoading(false))
 
