@@ -13,6 +13,10 @@ export const checkUrl = word => {
     : 0
 }
 
+export const isSocialLinkAvailable = (link) => {
+    return link !== undefined
+}
+
 export const randomize = () =>
     0.5 - Math.random()
 

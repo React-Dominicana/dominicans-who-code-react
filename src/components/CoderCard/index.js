@@ -8,8 +8,6 @@ import CardBody from 'reactstrap/lib/CardBody'
 import Badge from 'reactstrap/lib/Badge'
 import Row from 'reactstrap/lib/Row'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const CoderCard = memo((props) => {
   const skills = props.skills.split(',')
@@ -17,10 +15,10 @@ const CoderCard = memo((props) => {
   const renderSkillsTag = (skill, index) =>
     <Badge color="primary" key={index} className="skill-tag">{skill}</Badge>
 
-  const renderIconsAndLinks = (icon, link) => {
+  const renderIconsAndLinks = (link, index) => {
     return (
-      <a className="link" href={link}>
-        <FontAwesomeIcon className="icon" icon={icon} />
+      <a className="link" href={link.url} key={index}>
+        <FontAwesomeIcon className="icon" icon={link.icon} />
       </a>
     );
   }
@@ -37,10 +35,7 @@ const CoderCard = memo((props) => {
           <CardSubtitle className="subtitle">{props.initials}</CardSubtitle>
           <CardText className="description">{props.summary}</CardText>
           <Row className="icons">
-            {props.webpage === undefined ? <></> : renderIconsAndLinks(faGlobeAmericas, props.webpage)}
-            {props.github === undefined ? <></> : renderIconsAndLinks(faGithub, props.github)}
-            {props.linkedin === undefined ? <></> : renderIconsAndLinks(faLinkedin, props.linkedin)}
-            {props.twitter === undefined ? <></> : renderIconsAndLinks(faTwitter, props.twitter)}
+            {props.links.map(renderIconsAndLinks)}
           </Row>
         </CardBody>
       </Card>
