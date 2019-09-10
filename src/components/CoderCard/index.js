@@ -14,7 +14,7 @@ const CoderCard = memo((props) => {
     <Badge color="primary" key={index} className="skill-tag">{skill}</Badge>
 
   return (
-    <Col xs={12} md={4}>
+    <Col xs={12} sm={6} md={3}>
       <Card className="dev-card m-3">
         <div
           className="image"
@@ -22,7 +22,9 @@ const CoderCard = memo((props) => {
         <CardBody>
           {skills.map(renderSkillsTag)}
           <CardTitle className="title">{props.name}</CardTitle>
-          <CardSubtitle className="subtitle">{props.initials}</CardSubtitle>
+          <CardSubtitle className="subtitle">
+            <span>{props.initials}</span>
+          </CardSubtitle>
           <CardText className="description">{props.summary}</CardText>
         </CardBody>
       </Card>

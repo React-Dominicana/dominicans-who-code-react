@@ -34,10 +34,25 @@
   } 
 
   @media only screen and (min-width: 1025px) {
-    margin: 0 150px;
+    margin: 0 50px;
   }
 
   .dev-card {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transform: scale(1.0);
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all .8s ease-in-out;
+
+
+    &:hover {
+      z-index: 5;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      transform: scale(1.04);
+      filter: grayscale(0%);
+      -webkit-filter: grayscale(0%);
+    }
+
     .skill-tag {
       margin: 0 2px;
     }
@@ -48,19 +63,31 @@
       background-size: cover;
       background-position: top;
       height: 300px;
-      filter: grayscale(100%);
-      -webkit-filter: grayscale(100%);
-      -webkit-transition: all .8s ease-in-out;
-
-      &:hover {
-        filter: grayscale(0%);
-        -webkit-filter: grayscale(0%);
-      }
     }
 
     .title {
       font-size: 20px;
       font-weight: 800;
+    }
+
+    .subtitle {
+      background-color: #000;
+      border: solid 2px #fff;
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: -1em;
+      left: 15em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 800;
+      }
     }
 
     .description {
