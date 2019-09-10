@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { checkUrl } from '../utils'
+import { checkUrl, shuffle } from '../utils'
 
 const buildUrl = criteria =>
     `${process.env.REACT_APP_API_URL}${criteria ? `/${criteria}` : ''}`
@@ -35,7 +35,7 @@ const useDominicanCoders = (criteria = '') => {
         fetch(buildUrl(criteria))
             .then(isOk)
             .then(updateImageUrl)
-            .then(helper.shuffle)
+            .then(shuffle)
             .then(setCoders)
             .finally(setLoading(false))
 

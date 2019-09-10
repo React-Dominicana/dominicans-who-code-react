@@ -48,6 +48,14 @@
       background-size: cover;
       background-position: top;
       height: 300px;
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -webkit-transition: all .8s ease-in-out;
+
+      &:hover {
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+      }
     }
 
     .title {
@@ -87,4 +95,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes colorize {
+  0%    { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
+  25%   { -webkit-filter: grayscale(75%); filter: grayscale(75%); }
+  50%   { -webkit-filter: grayscale(50%); filter: grayscale(50%); }
+  75%   { -webkit-filter: grayscale(25%); filter: grayscale(25%); }
+  100%  { -webkit-filter: grayscale(0%); filter: grayscale(0%); }
 }
