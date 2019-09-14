@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { checkUrl, shuffle, isSocialLinkAvailable } from '../utils'
+import { checkUrl, shuffle, pathOr } from '../utils'
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
@@ -25,41 +25,33 @@ const appendRawGitUrl = coder => {
 }
 
 const appendSocialLinks = coder => {
-    let links = []
-    const githubStatus = isSocialLinkAvailable(coder.github)
-    const linkedinStatus = isSocialLinkAvailable(coder.linkedin)
-    const webpageStatus = isSocialLinkAvailable(coder.webpage)
-    const twitterStatus = isSocialLinkAvailable(coder.twitter)
-
-    if (githubStatus)
-        links.push({ url: coder.github, icon: faGithub})
-
-    if (linkedinStatus)
-        links.push({ url: coder.linkedin, icon: faLinkedin})
-
-    if (webpageStatus)
-        links.push({ url: coder.webpage, icon: faGlobeAmericas})
-
-    if (twitterStatus)
-        links.push({ url: coder.twitter, icon: faTwitter})
+    const github = pathOr('#', 'github', coder)
+    const linkedin = pathOr('#', 'linkedin', coder)
+    const webpage = pathOr('#', 'webpage', coder)
+    const twitter = pathOr('#', 'twitter', coder)
 
     return {
         ...coder,
-        links
+        links: Array.from([
+            { url: github, icon: faGithub }, 
+            { url: linkedin, icon: faLinkedin }, 
+            { url: webpage, icon: faGlobeAmericas }, 
+            { url: twitter, icon: faTwitter }]
+        )
     }
 }
 
 const updateLinks = data =>
     data.map(appendSocialLinks)
 
-const updateImageUrl = data => 
+const updateImageUrl = data =>
     data.map(appendRawGitUrl)
 
 const useDominicanCoders = (criteria = '') => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const setCoders = coders => setData(coders)
-    
+
     useEffect(() => {
         setLoading(true)
         fetch(buildUrl(criteria))
