@@ -16,9 +16,10 @@ const CoderCard = memo((props) => {
     <Badge color="primary" key={index} className="skill-tag">{skill}</Badge>
 
   const renderIconsAndLinks = (link, index) => {
+    const isPlaceholderLink = () => link.url === '#' ? 'd-none' : ''
     return (
       <a className="link" href={link.url} key={index}>
-        <FontAwesomeIcon className="icon" icon={link.icon} />
+        <FontAwesomeIcon className={`icon ${isPlaceholderLink()}`} icon={link.icon} />
       </a>
     );
   }
