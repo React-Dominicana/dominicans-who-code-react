@@ -47,7 +47,7 @@ const updateLinks = data =>
 const updateImageUrl = data =>
     data.map(appendRawGitUrl)
 
-const useDominicanCoders = (criteria = '') => {
+export const useDominicanCoders = (criteria = '') => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const setCoders = coders => setData(coders)
@@ -67,4 +67,3 @@ const useDominicanCoders = (criteria = '') => {
     return { data, loading }
 }
 
-export default useDominicanCoders

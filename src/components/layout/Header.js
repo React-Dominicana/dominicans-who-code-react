@@ -6,7 +6,7 @@ import Nav from 'reactstrap/lib/Nav'
 import NavItem from 'reactstrap/lib/NavItem'
 import NavLink from 'reactstrap/lib/NavLink'
 
-const Header = () => {
+export const Header = () => {
     return (
         <Navbar color="light"  expand="md" className="mb-3">
             <NavbarBrand href="/"><kbd>{process.env.REACT_APP_PROJECT_NAME}</kbd></NavbarBrand>
@@ -22,4 +22,3 @@ const Header = () => {
     )
 }
 
-export default Header
