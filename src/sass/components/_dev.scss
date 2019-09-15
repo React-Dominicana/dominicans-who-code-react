@@ -11,16 +11,25 @@ $block: 'dev';
     } 
   
     @media only screen and (min-width: $lg) {
-      margin: 0 150px;
+      margin: 0 55px;
     }
   
     .#{$block}-card {
-      .skill-tag {
-        margin: 0 2px;
-      }
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      transform: scale(1.0);
+      filter: grayscale(100%);
+      -webkit-filter: grayscale(100%);
+      -webkit-transition: all .8s ease-in-out;
   
-      .image {
-        background-color: $black-odd;
+  
+      &:hover {
+        z-index: 5;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        transform: scale(1.04);
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+      }.image {
+        background-color: #212529;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top;
@@ -32,9 +41,58 @@ $block: 'dev';
         font-weight: 800;
       }
   
+      .subtitle {
+        background-color: #000;
+        border: solid 2px #fff;
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        @media only screen and (min-width: $sm) and (max-width: 480px) {
+          left: -1em;
+        }
+      
+        @media only screen and (min-width: $md) and (max-width: 1024px) {
+          left: 10em;
+        } 
+      
+        @media only screen and (min-width: $lg) {
+          left: 15em;
+        }
+  
+        span {
+          color: #fff;
+          font-size: 14px;
+          font-weight: 800;
+        }
+      }
+  
       .description {
         font-size: 14px;
         font-weight: 300;
+      }
+  
+      .icons {
+        display: inline;
+  
+        .link {
+          color: #212529;
+          text-decoration: none;
+  
+          &:hover {
+            color: #747474;
+          }
+          
+          .icon {
+            font-size: 20px;
+            margin: 0 2px;
+          }
+        }
       }
     }
   }
@@ -64,113 +122,3 @@ $block: 'dev';
 .App-link {
   color: #61dafb;
 }
-
-.dev-list {
-  
-  @media only screen and (min-width: 320px) and (max-width: 480px) {
-    margin: 0 10px;
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    margin: 0 10px;
-  } 
-
-  @media only screen and (min-width: 1025px) {
-    margin: 0 50px;
-  }
-
-  .dev-card {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transform: scale(1.0);
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-    -webkit-transition: all .8s ease-in-out;
-
-
-    &:hover {
-      z-index: 5;
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      transform: scale(1.04);
-      filter: grayscale(0%);
-      -webkit-filter: grayscale(0%);
-    }
-
-    .skill-tag {
-      margin: 0 2px;
-    }
-
-    .image {
-      background-color: #212529;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: top;
-      height: 300px;
-    }
-
-    .title {
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .subtitle {
-      background-color: #000;
-      border: solid 2px #fff;
-      border-radius: 100%;
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: -1em;
-      left: 15em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      span {
-        color: #fff;
-        font-size: 14px;
-        font-weight: 800;
-      }
-    }
-
-    .description {
-      font-size: 14px;
-      font-weight: 300;
-    }
-
-    .icons {
-      display: inline;
-
-      .link {
-        color: #212529;
-        text-decoration: none;
-
-        &:hover {
-          color: #747474;
-        }
-        
-        .icon {
-          font-size: 20px;
-          margin: 0 2px;
-        }
-      }
-    }
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes colorize {
-  0%    { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
-  25%   { -webkit-filter: grayscale(75%); filter: grayscale(75%); }
-  50%   { -webkit-filter: grayscale(50%); filter: grayscale(50%); }
-  75%   { -webkit-filter: grayscale(25%); filter: grayscale(25%); }
-  100%  { -webkit-filter: grayscale(0%); filter: grayscale(0%); }
-}
-
