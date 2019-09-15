@@ -6,7 +6,7 @@ import Nav from 'reactstrap/lib/Nav'
 import NavItem from 'reactstrap/lib/NavItem'
 import NavLink from 'reactstrap/lib/NavLink'
 
-const Footer = () => (
+export const Footer = () => (
     <Navbar color="light" expand="md" className="mt-4">
         <NavbarBrand href="/"><kbd>{process.env.REACT_APP_PROJECT_NAME}</kbd></NavbarBrand>
         <Nav className="ml-auto" navbar>
@@ -17,4 +17,3 @@ const Footer = () => (
     </Navbar>
 )
 
-export default Footer
