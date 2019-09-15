@@ -8,10 +8,31 @@
  */
 
 export const checkUrl = word => {
-    return (!word) ? -1 
-    : (/^(http|https|ftp)/.test(word)) ? 1
-    : 0
+    return (!word) ? -1
+        : (/^(http|https|ftp)/.test(word)) ? 1
+            : 0
 }
+
+/**
+ * Check if the object is empty
+ * @param {object} obj*
+ * @returns {boolean} true if the object is empty, false if not.
+ */
+export const isEmptyObject = obj =>
+    (Object.entries(obj).length === 0 && obj.constructor === Object)
+
+/**
+ * Search for a property inside an object.
+ * 
+ * @param {string} dflt the value we set if the object property is undefined or null
+ * @param {*} c the property we're searching for
+ * @param {*} obj the object where we want to search 
+ * 
+ * @returns {defaultValue | obj[criteria]} the default value we passed or the property value we're searching for.
+ */
+export const pathOr = (defaultValue = '', criteria = '', obj) =>
+    obj[criteria] || defaultValue
+
 
 export const randomize = () =>
     0.5 - Math.random()

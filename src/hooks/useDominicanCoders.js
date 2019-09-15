@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
-import { checkUrl, shuffle } from '../utils'
+import { checkUrl, shuffle, pathOr } from '../utils'
+import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const buildUrl = criteria =>
     `${process.env.REACT_APP_API_URL}${criteria ? `/${criteria}` : ''}`
@@ -22,19 +24,40 @@ const appendRawGitUrl = coder => {
     }
 }
 
-const updateImageUrl = data => 
+const appendSocialLinks = coder => {
+    const github = pathOr('#', 'github', coder)
+    const linkedin = pathOr('#', 'linkedin', coder)
+    const webpage = pathOr('#', 'webpage', coder)
+    const twitter = pathOr('#', 'twitter', coder)
+
+    return {
+        ...coder,
+        links: Array.from([
+            { url: github, icon: faGithub }, 
+            { url: linkedin, icon: faLinkedin }, 
+            { url: webpage, icon: faGlobeAmericas }, 
+            { url: twitter, icon: faTwitter }]
+        )
+    }
+}
+
+const updateLinks = data =>
+    data.map(appendSocialLinks)
+
+const updateImageUrl = data =>
     data.map(appendRawGitUrl)
 
 const useDominicanCoders = (criteria = '') => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const setCoders = coders => setData(coders)
-    
+
     useEffect(() => {
         setLoading(true)
         fetch(buildUrl(criteria))
             .then(isOk)
             .then(updateImageUrl)
+            .then(updateLinks)
             .then(shuffle)
             .then(setCoders)
             .finally(setLoading(false))

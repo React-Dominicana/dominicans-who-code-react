@@ -6,12 +6,23 @@ import CardSubtitle from 'reactstrap/lib/CardSubtitle'
 import CardText from 'reactstrap/lib/CardText'
 import CardBody from 'reactstrap/lib/CardBody'
 import Badge from 'reactstrap/lib/Badge'
+import Row from 'reactstrap/lib/Row'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const CoderCard = memo((props) => {
   const skills = props.skills.split(',')
 
   const renderSkillsTag = (skill, index) =>
     <Badge color="primary" key={index} className="skill-tag">{skill}</Badge>
+
+  const renderIconsAndLinks = (link, index) => {
+    const isPlaceholderLink = () => link.url === '#' ? 'd-none' : ''
+    return (
+      <a className="link" href={link.url} key={index}>
+        <FontAwesomeIcon className={`icon ${isPlaceholderLink()}`} icon={link.icon} />
+      </a>
+    );
+  }
 
   return (
     <Col xs={12} md={4}>
@@ -24,6 +35,9 @@ const CoderCard = memo((props) => {
           <CardTitle className="title">{props.name}</CardTitle>
           <CardSubtitle className="subtitle">{props.initials}</CardSubtitle>
           <CardText className="description">{props.summary}</CardText>
+          <Row className="icons">
+            {props.links.map(renderIconsAndLinks)}
+          </Row>
         </CardBody>
       </Card>
     </Col>
