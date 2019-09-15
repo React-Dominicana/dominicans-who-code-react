@@ -9,7 +9,7 @@ import Badge from 'reactstrap/lib/Badge'
 import Row from 'reactstrap/lib/Row'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const CoderCard = memo((props) => {
+export const CoderCard = memo((props) => {
   const skills = props.skills.split(',')
 
   const renderSkillsTag = (skill, index) =>
@@ -44,5 +44,3 @@ const CoderCard = memo((props) => {
 
   )
 })
-
-export default CoderCard

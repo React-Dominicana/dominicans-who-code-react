@@ -33,7 +33,6 @@ export const isEmptyObject = obj =>
 export const pathOr = (defaultValue = '', criteria = '', obj) =>
     obj[criteria] || defaultValue
 
-
 export const randomize = () =>
     0.5 - Math.random()
 
