@@ -3,34 +3,12 @@ import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 
 import { CoderCard } from '../components/CoderCard'
+import { coder1, coder2, coder3 } from '../utils/data'
+
 
 describe('CoderCard', () => {
   let wrapper
-  
-  const coder1 = {
-    name: "bob",
-    initials: "BOB",
-    summary: "dev",
-    image: "",
-    skills: "d,e,v",
-    links: [],
-  }
-  const coder2 = {
-    name: "bill",
-    initials: "BILL",
-    summary: "evl",
-    image: "",
-    skills: "e,v,l",
-    links: [],
-  }
-  const coder3 = {
-    name: "bobby",
-    initials: "BOBBY",
-    summary: "oper",
-    image: "",
-    skills: "o,p,e,r",
-    links: [],
-  }
+
   const coders = [coder1, coder2, coder3]
 
   beforeEach(() => {
