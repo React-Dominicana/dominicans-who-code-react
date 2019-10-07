@@ -21,5 +21,4 @@ describe('App', () => {
     const component = shallow(<App debug />);
     expect(component).toMatchSnapshot();
   })
-
 })
