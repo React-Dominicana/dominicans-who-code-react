@@ -1,6 +1,6 @@
 // Helpers
 import React, { memo } from 'react'
-import DominicansWhoCodesList from './DominicansWhoCodesList'
+import { DominicansWhoCodesList } from './DominicansWhoCodesList'
 
 import { Header } from '../components/layout/Header'
 import { Footer } from '../components/layout/Footer'
@@ -16,4 +16,3 @@ export const App = memo(() => {
     </div>
   );
 });
-

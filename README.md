@@ -25,6 +25,28 @@ yarn install
 yarn start
 ```
 
+### Tests
+
+#### Yarn
+
+To run the tests.
+
+```
+yarn test
+```
+
+To run the tests with `watch`.
+
+```
+yarn test:watch
+```
+
+To run the tests with `watch` and `coverage`.
+
+```
+yarn test:coverage
+```
+
 ### Deployment
 
 Automatically deployed into [Netlify](https://www.netlify.com/) when the `master` branch is updated.

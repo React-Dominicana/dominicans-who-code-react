@@ -2,23 +2,25 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 
-import { App } from '../containers/App'
+import { DominicansWhoCodesList } from '../containers/DominicansWhoCodesList'
 
-describe('App', () => {
-
+describe('DominicansWhoCodesList', () => {
+  
   it('renders without crashing', () => {
     const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
+    ReactDOM.render(<DominicansWhoCodesList />, div);
     ReactDOM.unmountComponentAtNode(div);
   })
 
   it('should render correctly with no props', () => {
-    const component = shallow(<App />);
+    const component = shallow(<DominicansWhoCodesList />);
+    expect(component).toMatchSnapshot();
+  })
+  
+  it('should render correctly in "debug" mode', () => {
+    const component = shallow(<DominicansWhoCodesList debug />);
     expect(component).toMatchSnapshot();
   })
 
-  it('should render correctly in "debug" mode', () => {
-    const component = shallow(<App debug />);
-    expect(component).toMatchSnapshot();
-  })
 })
+
