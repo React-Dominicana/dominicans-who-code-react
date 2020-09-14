@@ -56,4 +56,8 @@ Automatically deployed into [Netlify](https://www.netlify.com/) when the `master
  - [DominicanWhoCodes](https://github.com/AngelGarcia13/DominicanWhoCodes)
  - [IndiansWhoDesign](http://indianswhodesign.in)
 
+ ### License
+
+This project uses the following license: [MIT](<https://choosealicense.com/licenses/mit/>)
+
 <p align="center">With ❤️ from 🌴</p>
